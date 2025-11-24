@@ -5,8 +5,8 @@ class Treatment(models.Model):
     date = models.DateField(blank=True, null=True)
     treatment_type = models.CharField(max_length=200)    
     drug_name = models.CharField(max_length=100)
-    dosage_per_liter = models.CharField(max_length=100)  
-    total_quantity_used = models.CharField(max_length=100)
+    dosage_per_liter = models.IntegerField()  
+    total_quantity_used = models.IntegerField()
     administered_by = models.CharField(max_length=100)
     reason = models.CharField(max_length=100)
                                                          
