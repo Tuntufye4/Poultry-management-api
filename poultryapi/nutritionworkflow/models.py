@@ -5,9 +5,9 @@ class Nutrition(models.Model):
     feed_type = models.CharField(max_length=200)
     date = models.DateField(blank=True, null=True)
     feed_brand = models.CharField(max_length=200)    
-    quantity_kg = models.CharField(max_length=100)
-    cost_per_kg = models.CharField(max_length=100)  
+    quantity_kg = models.IntegerField()
+    cost_per_kg = models.IntegerField()  
     notes = models.CharField(max_length=100)
-    total_cost = models.CharField(max_length=100)
+    total_cost = models.IntegerField()
     
-                                   
+                                       
