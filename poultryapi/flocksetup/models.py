@@ -8,5 +8,5 @@ class Flocksetup(models.Model):
     initial_quantity = models.IntegerField()    
     age_in_days_at_arrival = models.IntegerField()     
     source_supplier = models.CharField(max_length=100)  
-    cost_per_bird = models.IntegerField() 
+    cost_per_bird = models.FloatField() 
                               

@@ -15,7 +15,7 @@ class NutritionListCreateView(generics.ListCreateAPIView):
     serializer_class = NutritionSerializer
      
     def get_queryset(self):
-        queryset = Nutrition.objects.all()
+        queryset = Nutrition.objects.all()   
 
         # Optional filters via query parameters
         feed_type = self.request.query_params.get("feed_type")

@@ -3,7 +3,7 @@ from rest_framework.response import Response
 from django.db.models import Count
 
 from .models import Manuresales   
-from .serializers import ManuresalesSerializer
+from .serializers import ManuresalesSerializer    
 
 
 class ManuresalesListCreateView(generics.ListCreateAPIView):
@@ -17,16 +17,8 @@ class ManuresalesListCreateView(generics.ListCreateAPIView):
     def get_queryset(self):    
         queryset = Manuresales.objects.all()
    
-        # Optional filters via query parameters
-        flock = self.request.query_params.get("flock")
-        trays_sold = self.request.query_params.get("trays_sold")   
+        # Optional filters via query parameters  
         payment_method = self.request.query_params.get("payment_method")  
-
-        if flock:
-            queryset = queryset.filter(flock__icontains=flock)
-    
-        if trays_sold:   
-            queryset = queryset.filter(trays_sold__icontains=trays_sold)  
 
         if payment_method:       
             queryset = queryset.filter(payment_method__icontains=payment_method)  
@@ -47,7 +39,7 @@ class ManuresalesListCreateView(generics.ListCreateAPIView):
 class ManuresalesCountView(generics.GenericAPIView):
     """   
     GET /api/manuresales/count/        
-    GET /api/manuresales/count/?breed=Broiler
+    GET /api/manuresales/count/?payment_method=
  
     """   
     queryset = Manuresales.objects.all()
@@ -55,15 +47,7 @@ class ManuresalesCountView(generics.GenericAPIView):
     def get(self, request, *args, **kwargs):
         queryset = Manuresales.objects.all()
 
-        flock = request.query_params.get("flock")
-        trays_sold = request.query_params.get("trays_sold")
-        payment_method = request.query_params.get("payment_method")
-         
-        if flock:
-            queryset = queryset.filter(flock__icontains=flock)
-
-        if trays_sold:    
-            queryset = queryset.filter(trays_sold__icontains=trays_sold)
+        payment_method = request.query_params.get("payment_method")  
 
         if payment_method:    
             queryset = queryset.filter(payment_method__icontains=payment_method)

@@ -39,7 +39,7 @@ class MeatproductionListCreateView(generics.ListCreateAPIView):
 class MeatproductionCountView(generics.GenericAPIView):
     """
     GET /api/meatproduction/count/        -> total treatments  
-    GET /api/meatproduction/count/?treatment_type       
+    GET /api/meatproduction/count/?flock=       
     """   
     queryset = Meatproduction.objects.all()
 

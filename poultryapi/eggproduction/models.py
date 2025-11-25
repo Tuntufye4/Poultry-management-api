@@ -9,4 +9,7 @@ class  Eggproduction(models.Model):
     total_egg_weight_kg = models.IntegerField()   
     collector_name = models.CharField(max_length=100)
 
-                                           
+                                              
+
+
+                                               

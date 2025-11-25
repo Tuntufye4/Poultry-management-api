@@ -12,21 +12,17 @@ class EggsalesListCreateView(generics.ListCreateAPIView):
     POST /api/eggsales/      -> create a new eggsales
     """
     queryset = Eggsales.objects.all()          
-    serializer_class = EggsalesSerializer       
+    serializer_class = EggsalesSerializer         
      
     def get_queryset(self):    
         queryset = Eggsales.objects.all()
    
         # Optional filters via query parameters
-        flock = self.request.query_params.get("flock")
-        trays_sold = self.request.query_params.get("trays_sold")   
+        flock = self.request.query_params.get("flock")   
         payment_method = self.request.query_params.get("payment_method")  
 
         if flock:
-            queryset = queryset.filter(flock__icontains=flock)
-    
-        if trays_sold:   
-            queryset = queryset.filter(trays_sold__icontains=trays_sold)  
+            queryset = queryset.filter(flock__icontains=flock)   
 
         if payment_method:       
             queryset = queryset.filter(payment_method__icontains=payment_method)  
@@ -55,15 +51,11 @@ class EggsalesCountView(generics.GenericAPIView):
     def get(self, request, *args, **kwargs):
         queryset = Eggsales.objects.all()
 
-        flock = request.query_params.get("flock")
-        trays_sold = request.query_params.get("trays_sold")
+        flock = request.query_params.get("flock")            
         payment_method = request.query_params.get("payment_method")
          
         if flock:
-            queryset = queryset.filter(flock__icontains=flock)
-
-        if trays_sold:    
-            queryset = queryset.filter(trays_sold__icontains=trays_sold)
+            queryset = queryset.filter(flock__icontains=flock)  
 
         if payment_method:    
             queryset = queryset.filter(payment_method__icontains=payment_method)

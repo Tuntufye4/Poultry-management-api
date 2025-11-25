@@ -7,4 +7,4 @@ class  Meatproduction(models.Model):
     average_weight_kg = models.IntegerField()  
     lowest_weight_kg = models.IntegerField()    
     highest_weight_kg = models.IntegerField() 
-                                               
+             

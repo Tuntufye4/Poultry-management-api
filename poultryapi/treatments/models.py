@@ -9,4 +9,4 @@ class Treatment(models.Model):
     total_quantity_used = models.IntegerField()
     administered_by = models.CharField(max_length=100)
     reason = models.CharField(max_length=100)
-                                                         
+                                                            

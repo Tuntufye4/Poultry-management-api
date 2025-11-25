@@ -8,8 +8,8 @@ from .serializers import FlocksetupSerializer
 
 class FlocksetupListCreateView(generics.ListCreateAPIView):
     """
-    GET  /api/flocks/      -> list all flocks (with optional filters)
-    POST /api/flocks/      -> create a new flock
+    GET  /api/flocksetup/      -> list all flocks (with optional filters)
+    POST /api/flocksetup/      -> create a new flock
     """
     queryset = Flocksetup.objects.all()
     serializer_class = FlocksetupSerializer
@@ -50,10 +50,10 @@ class FlocksetupListCreateView(generics.ListCreateAPIView):
 
 class FlockCountView(generics.GenericAPIView):
     """
-    GET /api/flocks/count/        -> total flocks
-    GET /api/flocks/count/?breed=Broiler
-    GET /api/flocks/count/?status=active
-    """
+    GET /api/flocksetup/count/        -> total flocks
+    GET /api/flocksetup/count/?breed=Broiler
+
+    """   
     queryset = Flocksetup.objects.all()
 
     def get(self, request, *args, **kwargs):

@@ -19,21 +19,21 @@ class TreatmentListCreateView(generics.ListCreateAPIView):
 
         # Optional filters via query parameters
         flock = self.request.query_params.get("flock")
-        trays_sold = self.request.query_params.get("trays_sold") 
         treatment_type = self.request.query_params.get("treatment_type")   
+        drug_name = self.request.query_params.get("drug_name")
     
         if flock:
             queryset = queryset.filter(flock__icontains=flock)
- 
-        if trays_sold:
-            queryset = queryset.filter(trays_sold__icontains=trays_sold)  
-
+    
         if treatment_type:
             queryset = queryset.filter(treatment_type__icontains=treatment_type)    
 
+        if drug_name:
+            queryset = queryset.filter(drug_name__icontains=drug_name)
+
         return queryset
 
-    def post(self, request, *args, **kwargs):
+    def post(self, request, *args, **kwargs):      
         serializer = TreatmentSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -56,15 +56,17 @@ class TreatmentCountView(generics.GenericAPIView):
 
         flock = request.query_params.get("flock")
         treatment_type = request.query_params.get("treatment_type")
-        trays_sold = request.query_params.get("trays_sold")
+        drug_name = request.query_params.get("drug_name")
+       
      
         if flock:     
             queryset = queryset.filter(flock__icontains=flock)   
 
-        if trays_sold:
-            queryset = queryset.filter(trays_sold__icontains=trays_sold)
-
         if treatment_type:
             queryset = queryset.filter(treatment_type__icontains=treatment_type)
+
+        if drug_name:
+            queryset = queryset.filter(drug_name__icontains=drug_name)
    
         return Response({"count": queryset.count()})
+    

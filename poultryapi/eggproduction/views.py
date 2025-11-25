@@ -8,11 +8,11 @@ from .serializers import EggproductionSerializer
 
 class EggproductionListCreateView(generics.ListCreateAPIView):
     """    
-    GET  /api/flocks/      -> list all flocks (with optional filters)   
-    POST /api/flocks/      -> create a new flock
+    GET  /api/eggproduction/      -> list all eggproduction (with optional filters)   
+    POST /api/eggproduction/      -> create a new egg production list
     """
-    queryset = Eggproduction.objects.all()        
-    serializer_class = EggproductionSerializer    
+    queryset = Eggproduction.objects.all()          
+    serializer_class = EggproductionSerializer       
      
     def get_queryset(self):    
         queryset = Eggproduction.objects.all()
@@ -46,9 +46,9 @@ class EggproductionListCreateView(generics.ListCreateAPIView):
 
 class EggproductionCountView(generics.GenericAPIView):
     """
-    GET /api/flocks/count/        -> total flocks
-    GET /api/flocks/count/?breed=Broiler
-    GET /api/flocks/count/?status=active
+    GET /api/eggproduction/count/        -> total eggproduction
+    GET /api/eggproduction/count/?flock=
+    GET /api/eggproduction/count/?cracked_eggs=  
     """
     queryset = Eggproduction.objects.all()
 

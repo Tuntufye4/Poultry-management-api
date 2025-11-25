@@ -8,8 +8,8 @@ from .serializers import InventorySerializer
 
 class InventoryListCreateView(generics.ListCreateAPIView):
     """
-    GET  /api/flocks/      -> list all flocks (with optional filters)   
-    POST /api/flocks/      -> create a new flock
+    GET  /api/inventory/      -> list all inventory (with optional filters)   
+    POST /api/inventory/      -> create a new inventory list
     """
     queryset = Inventory.objects.all()
     serializer_class = InventorySerializer
@@ -20,8 +20,9 @@ class InventoryListCreateView(generics.ListCreateAPIView):
         # Optional filters via query parameters
         category = self.request.query_params.get("category")
         supplier = self.request.query_params.get("supplier") 
-        source_supplier = self.request_params.get("source_supplier")   
-
+        source_supplier = self.request_params.get("source_supplier") 
+        item_name = self.request_params.get("item_name")     
+     
         if category:
             queryset = queryset.filter(category__icontains=category)
 
@@ -30,6 +31,9 @@ class InventoryListCreateView(generics.ListCreateAPIView):
 
         if source_supplier:
             queryset = queryset.filter(source_supplier__icontains=source_supplier) 
+            
+        if item_name:
+            queryset = queryset.filter(item_name__icontains=item_name)
 
         return queryset
 
@@ -57,6 +61,7 @@ class InventoryCountView(generics.GenericAPIView):
         category = request.query_params.get("category")   
         supplier = request.query_params.get("supplier")
         source_supplier = request.query_params.get("source_supplier")
+        item_name = request.query_params.get("item_name")
 
         if category:   
             queryset = queryset.filter(category__icontains=category)
@@ -66,6 +71,9 @@ class InventoryCountView(generics.GenericAPIView):
 
         if source_supplier:
             queryset = queryset.filter(source_supplier__icontains=source_supplier)
+
+        if item_name:
+            queryset = queryset.filter(item_name__icontains=item_name)
 
         return Response({"count": queryset.count()})
      

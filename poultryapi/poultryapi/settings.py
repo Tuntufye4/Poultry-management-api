@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-hu6qqte)68eu&ng)fd##z%k^w_xb7mq+px=%c3cs+u0jf(51e5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'expenses', 
     'culling',    
     'inventory',
+    'inventory_movement',                 
     'meatproduction',
     'nutritionworkflow',
     'treatments',  
@@ -49,7 +50,7 @@ INSTALLED_APPS = [
     'manuresales',
     'eggsales',            
 ]
-         
+            
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'corsheaders.middleware.CorsMiddleware',    
