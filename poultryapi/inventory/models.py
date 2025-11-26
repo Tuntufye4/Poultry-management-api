@@ -1,6 +1,13 @@
 from django.db import models
+from users.models import User
 
-class  Inventory(models.Model):      
+class  Inventory(models.Model):
+    created_by = models.ForeignKey(
+        User,    
+        on_delete=models.SET_NULL,
+        null=True,
+        related_name='inventory'  # <-- unique reverse name
+    )             
     category = models.CharField(max_length=200)   
     item_name = models.CharField(max_length=200)
     quantity = models.IntegerField()    

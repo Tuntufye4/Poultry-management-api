@@ -1,6 +1,13 @@
 from django.db import models
+from users.models import User
 
-class  Manuresales(models.Model):      
+class  Manuresales(models.Model):   
+    created_by = models.ForeignKey(
+        User,    
+        on_delete=models.SET_NULL,
+        null=True,
+        related_name='manuresales'  # <-- unique reverse name
+    )      
     quantity_bags = models.IntegerField() 
     date = models.DateField(blank=True, null=True)     
     price_per_bag = models.FloatField() 

@@ -1,6 +1,13 @@
 from django.db import models
+from users.models import User 
 
-class  Eggproduction(models.Model):      
+class  Eggproduction(models.Model):     
+    created_by = models.ForeignKey(
+        User,    
+        on_delete=models.SET_NULL,
+        null=True,
+        related_name='eggproduction'  # <-- unique reverse name
+    )        
     flock = models.CharField(max_length=200) 
     date = models.DateField(blank=True, null=True)     
     eggs_collected = models.IntegerField()
