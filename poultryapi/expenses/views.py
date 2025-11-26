@@ -55,7 +55,7 @@ class ExpensesCountView(generics.GenericAPIView):
     """   
     queryset = Expenses.objects.all()
 
-    def get(self, request, *args, **kwargs):
+    def get(self, request, *args, **kwargs):   
         queryset = Expenses.objects.all()
 
         expense_type = request.query_params.get("expense_type")

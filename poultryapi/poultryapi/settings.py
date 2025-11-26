@@ -49,7 +49,10 @@ INSTALLED_APPS = [
     'treatments',  
     'eggproduction', 
     'manuresales',
-    'eggsales',              
+    'eggsales',  
+    'sales_management',
+    'farm_management',    
+    'logistics_management',           
     'users',            
 ]
 
