@@ -1,6 +1,6 @@
 # Poultry Management API
 - [Poultry Management API](#-Poultry-management-api)
-  - [List of Services](#list-of-services)
+  - [Services](#services)
     - [Inventory](#inventory)
     - [Manure sales](#manure-sales)
    
@@ -8,7 +8,7 @@
 ---
 A poultry management api which contains farm, logistics and sales management services.
 
-## List of Services
+## Services
     
 ### Inventory  
 
