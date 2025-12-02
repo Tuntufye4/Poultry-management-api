@@ -12,6 +12,7 @@ class Treatment(models.Model):
     date = models.DateField(blank=True, null=True)
     treatment_type = models.CharField(max_length=200)    
     drug_name = models.CharField(max_length=100)
+    drug_type = models.CharField(max_length=100, blank=True, null=True)
     dosage_per_liter = models.IntegerField()  
     total_quantity_used = models.IntegerField()
     administered_by = models.CharField(max_length=100)

@@ -52,10 +52,18 @@ INSTALLED_APPS = [
     'eggsales',  
     'sales_management',
     'farm_management',    
-    'logistics_management',           
-    'users',            
+    'logistics_management', 
+    'meatsales',           
+    'users',               
 ]
 
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",  # Vite dev server
+]         
+
+CORS_ALLOW_ALL_ORIGINS = True  # dev only
+
+CORS_ALLOW_CREDENTIALS = True          
     
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (

@@ -43,8 +43,8 @@ class CullingListCreateView(generics.ListCreateAPIView):
 class CullingCountView(generics.GenericAPIView):
     """
     GET /api/culling/count/        -> total flocks
-    GET /api/culling/count/?breed=Broiler
-   
+    GET /api/culling/count/?flock=
+    GET /api/culling/count/?payment_method=
     """
     queryset = Culling.objects.all()
 

@@ -6,7 +6,7 @@ from .models import Expenses
 from .serializers import ExpensesSerializer          
 
     
-class ExpensesView(generics.ListCreateAPIView):   
+class ExpensesView(generics.ListCreateAPIView):     
     """      
     GET  /api/expenses/      -> list all expenses (with optional filters)      
     POST /api/expenses/      -> create a new expense 

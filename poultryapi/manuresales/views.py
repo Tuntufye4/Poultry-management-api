@@ -12,7 +12,7 @@ class ManuresalesListCreateView(generics.ListCreateAPIView):
     POST /api/manuresales/      -> create a new manuresales list
     """
     queryset = Manuresales.objects.all()          
-    serializer_class = ManuresalesSerializer       
+    serializer_class = ManuresalesSerializer          
      
     def get_queryset(self):    
         queryset = Manuresales.objects.all()

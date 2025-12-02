@@ -12,7 +12,9 @@ class  Manuresales(models.Model):
     date = models.DateField(blank=True, null=True)     
     price_per_bag = models.FloatField() 
     total_amount = models.FloatField() 
-    buyer_name = models.CharField(max_length=100)   
+    buyer_name = models.CharField(max_length=100)          
     payment_method = models.CharField(max_length=100)   
+    manure_type = models.CharField(max_length=100, blank=True, null=True)
+    manure_quality = models.CharField(max_length=100, blank=True, null=True)
        
-                                                        
+                                                            

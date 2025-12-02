@@ -42,7 +42,7 @@ class InventorymovementListCreateView(generics.ListCreateAPIView):
 
 class InventorymovementCountView(generics.GenericAPIView):
     """
-    GET /api/inventory_movement/count/        -> total 
+    GET /api/inventory_movement/count/        
     GET /api/inventory_movement/count/?inventory_item=
     """
     queryset = Inventory_movement.objects.all()

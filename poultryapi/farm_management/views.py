@@ -8,10 +8,10 @@ from .serializers import FarmManagementSerializer
     
 class FarmManagementView(generics.ListCreateAPIView):   
     """      
-    GET  /api/expenses/      -> list all expenses (with optional filters)      
-    POST /api/expenses/      -> create a new expense 
+    GET  /api/farm_management/      -> list all  (with optional filters)      
+    POST /api/farm_management/      -> create a new farm management list 
     """
-    queryset = FarmManagement.objects.all()
+    queryset = FarmManagement.objects.all()                    
     serializer_class = FarmManagementSerializer
      
     def get_queryset(self):
@@ -38,10 +38,8 @@ class FarmManagementView(generics.ListCreateAPIView):
 
 class FarmManagementCountView(generics.GenericAPIView):
     """
-    GET /api/expenses/count/        -> total expenses
-    GET /api/expenses/count/?expense_type=
-    GET /api/expenses/count/?flock=
-    GET /api/expenses/count/?payment_method=
+    GET /api/farm_management/count/        
+    GET /api/farm_management/count/?activity=
 
     """   
     queryset = FarmManagement.objects.all()    

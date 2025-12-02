@@ -18,10 +18,10 @@ class InventoryListCreateView(generics.ListCreateAPIView):
         queryset = Inventory.objects.all()
    
         # Optional filters via query parameters
-        category = self.request.query_params.get("category")
+        category = self.request.query_params.get("category")       
         supplier = self.request.query_params.get("supplier") 
-        source_supplier = self.request_params.get("source_supplier") 
-        item_name = self.request_params.get("item_name")     
+        source_supplier = self.request.query_params.get("source_supplier") 
+        item_name = self.request.query_params.get("item_name")     
      
         if category:
             queryset = queryset.filter(category__icontains=category)
@@ -45,13 +45,16 @@ class InventoryListCreateView(generics.ListCreateAPIView):
                 {"message": "Inventory created successfully", "data": serializer.data},
                 status=status.HTTP_201_CREATED,   
             )
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)   
 
 
 class InventoryCountView(generics.GenericAPIView):
     """
-    GET /api/inventory/count/        -> total 
+    GET /api/inventory/count/        
     GET /api/inventory/count/?category=
+    GET /api/inventory/count/?supplier=
+    GET /api/inventory/count/?source_supplier=
+    GET /api/inventory/count/?item_name=
     """
     queryset = Inventory.objects.all()
 

@@ -5,11 +5,11 @@ from django.db.models import Count
 from .models import SalesManagement
 from .serializers import SalesManagementSerializer             
 
-    
+       
 class SalesManagementView(generics.ListCreateAPIView):   
     """      
-    GET  /api/expenses/      -> list all expenses (with optional filters)      
-    POST /api/expenses/      -> create a new expense 
+    GET  /api/sales_management/      -> list all sales (with optional filters)      
+    POST /api/sales_management/      -> create a new sales_management list 
     """
     queryset = SalesManagement.objects.all()
     serializer_class = SalesManagementSerializer
@@ -38,10 +38,8 @@ class SalesManagementView(generics.ListCreateAPIView):
 
 class SalesManagementCountView(generics.GenericAPIView):
     """
-    GET /api/expenses/count/        -> total expenses
-    GET /api/expenses/count/?expense_type=
-    GET /api/expenses/count/?flock=
-    GET /api/expenses/count/?payment_method=
+    GET /api/sales_management/count/        -> total sales 
+    GET /api/sales_management/count/?activity=
 
     """   
     queryset = SalesManagement.objects.all()    

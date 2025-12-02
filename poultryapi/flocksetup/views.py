@@ -11,7 +11,7 @@ class FlocksetupListCreateView(generics.ListCreateAPIView):
     GET  /api/flocksetup/      -> list all flocks (with optional filters)
     POST /api/flocksetup/      -> create a new flock
     """
-    queryset = Flocksetup.objects.all()
+    queryset = Flocksetup.objects.all()   
     serializer_class = FlocksetupSerializer
      
     def get_queryset(self):
@@ -50,9 +50,11 @@ class FlocksetupListCreateView(generics.ListCreateAPIView):
 
 class FlockCountView(generics.GenericAPIView):
     """
-    GET /api/flocksetup/count/        -> total flocks
-    GET /api/flocksetup/count/?breed=Broiler
-
+    GET /api/flocksetup/count/        
+    GET /api/flocksetup/count/?breed=
+    GET /api/flocksetup/count/?poultry_house=
+    GET /api/flocksetup/count/?category=
+    GET /api/flocksetup/count/?source_supplier=
     """   
     queryset = Flocksetup.objects.all()
 

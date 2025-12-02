@@ -13,5 +13,6 @@ class  Inventory_movement(models.Model):
     quantity = models.IntegerField()    
     date = models.DateField(blank=True, null=True)   
     reason = models.CharField(max_length=100)
+    movement_status = models.CharField(max_length=100, blank=True, null=True)
        
                                         

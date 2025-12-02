@@ -1,15 +1,15 @@
 from rest_framework import status, generics
 from rest_framework.response import Response
 from django.db.models import Count
-
+   
 from .models import LogisticsManagement
 from .serializers import LogisticsManagementSerializer             
 
     
 class LogisticsManagementView(generics.ListCreateAPIView):   
     """      
-    GET  /api/expenses/      -> list all expenses (with optional filters)      
-    POST /api/expenses/      -> create a new expense 
+    GET  /api/logistics_management/      -> list all logistics (with optional filters)      
+    POST /api/logistics_management/      -> create a new logistics list 
     """
     queryset = LogisticsManagement.objects.all()
     serializer_class = LogisticsManagementSerializer
@@ -38,10 +38,8 @@ class LogisticsManagementView(generics.ListCreateAPIView):
 
 class LogisticsManagementCountView(generics.GenericAPIView):
     """
-    GET /api/expenses/count/        -> total expenses
-    GET /api/expenses/count/?expense_type=
-    GET /api/expenses/count/?flock=
-    GET /api/expenses/count/?payment_method=
+    GET /api/logistics_management/count/        
+    GET /api/logistics_management/count/?activity=     
 
     """   
     queryset = LogisticsManagement.objects.all()    

@@ -49,6 +49,7 @@ class EggproductionCountView(generics.GenericAPIView):
     GET /api/eggproduction/count/        -> total eggproduction
     GET /api/eggproduction/count/?flock=
     GET /api/eggproduction/count/?cracked_eggs=  
+    GET /api/eggproduction/count/?broken_eggs=    
     """
     queryset = Eggproduction.objects.all()
 

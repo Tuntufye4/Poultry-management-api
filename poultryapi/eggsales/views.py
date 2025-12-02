@@ -43,8 +43,8 @@ class EggsalesListCreateView(generics.ListCreateAPIView):
 class EggsalesCountView(generics.GenericAPIView):
     """   
     GET /api/eggsales/count/        
-    GET /api/eggsales/count/?breed=Broiler
- 
+    GET /api/eggsales/count/?flock=                  
+    GET /api/eggsales/count/?payment_method=
     """   
     queryset = Eggsales.objects.all()
 

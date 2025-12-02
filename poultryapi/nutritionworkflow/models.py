@@ -8,6 +8,7 @@ class Nutrition(models.Model):
     quantity_kg = models.IntegerField()
     cost_per_kg = models.FloatField()  
     notes = models.CharField(max_length=100)
-    total_cost = models.FloatField()  
+    total_cost = models.FloatField() 
+    feed_form = models.CharField(max_length=100, blank=True, null=True) 
     
-                                       
+                                             

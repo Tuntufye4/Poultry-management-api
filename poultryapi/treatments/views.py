@@ -1,7 +1,7 @@
 from rest_framework import status, generics
 from rest_framework.response import Response
 from django.db.models import Count
-    
+        
 from .models import Treatment
 from .serializers import TreatmentSerializer
 
@@ -47,7 +47,9 @@ class TreatmentListCreateView(generics.ListCreateAPIView):
 class TreatmentCountView(generics.GenericAPIView):
     """
     GET /api/treatments/count/        -> total treatments  
-    GET /api/treatments/count/?treatment_type       
+    GET /api/treatments/count/?treatment_type   
+    GET /api/treatments/count/?flock
+    GET /api/treatments/count/?drug_name         
     """   
     queryset = Treatment.objects.all()
 

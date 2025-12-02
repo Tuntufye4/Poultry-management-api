@@ -8,7 +8,7 @@ from .serializers import NutritionSerializer
    
 class NutritionListCreateView(generics.ListCreateAPIView):
     """    
-    GET  /api/nutritionworkflow/      -> list all flocks (with optional filters)   
+    GET  /api/nutritionworkflow/      -> list all nutritionworkflows (with optional filters)   
     POST /api/nutritionworkflow/      -> create a new nutrition workflow   
     """
     queryset = Nutrition.objects.all()
@@ -48,7 +48,8 @@ class NutritionCountView(generics.GenericAPIView):
     """
     GET /api/nutritionworkflow/count/             
     GET /api/nutritionworkflow/count/?feed_type=
-    GET /api/nutritionworkflow/count/?feed_brand=      
+    GET /api/nutritionworkflow/count/?feed_brand= 
+    GET /api/nutritionworkflow/count/?flock=      
     """
     queryset = Nutrition.objects.all()
 
