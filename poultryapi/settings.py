@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-hu6qqte)68eu&ng)fd##z%k^w_xb7mq+px=%c3cs+u0jf(51e5'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = True                 
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['poultry-management-api.onrender.com','127.0.0.1', 'localhost']
 
 
 # Application definition
