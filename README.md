@@ -6,8 +6,6 @@
    
 
 ---
-
-# Poultry Management API 
 A poultry management api which contains farm, logistics and sales management services.
 
 ## List of Services
