@@ -18,12 +18,20 @@ class ManuresalesListCreateView(generics.ListCreateAPIView):
         queryset = Manuresales.objects.all()
    
         # Optional filters via query parameters  
-        payment_method = self.request.query_params.get("payment_method")  
+        payment_method = self.request.query_params.get("payment_method") 
+        manure_type = self.request.query_params.get("manure_type")         
+        manure_quality = self.request.query_params.get("manure_quality")
 
         if payment_method:       
             queryset = queryset.filter(payment_method__icontains=payment_method)  
 
-        return queryset
+        if manure_type:
+            queryset = queryset.filter(manure_type__icontains=manure_type)
+
+        if manure_quality:
+            queryset = queryset.filter(manure_quality__icontains=manure_quality)
+
+        return queryset    
 
     def post(self, request, *args, **kwargs):
         serializer = ManuresalesSerializer(data=request.data)
@@ -40,7 +48,8 @@ class ManuresalesCountView(generics.GenericAPIView):
     """   
     GET /api/manuresales/count/        
     GET /api/manuresales/count/?payment_method=
- 
+    GET /api/manuresales/count/?manure_type=
+    GET /api/manuresales/count/?manure_quality=   
     """   
     queryset = Manuresales.objects.all()
 
@@ -48,9 +57,17 @@ class ManuresalesCountView(generics.GenericAPIView):
         queryset = Manuresales.objects.all()
 
         payment_method = request.query_params.get("payment_method")  
+        manure_type = request.query_params.get("manure_type")    
+        manure_quality = request.query_params.get("manure_quality")
 
         if payment_method:    
             queryset = queryset.filter(payment_method__icontains=payment_method)
+
+        if manure_type:
+            queryset = queryset.filter(manure_type__icontains=manure_type)
+
+        if manure_quality:
+            queryset = queryset.filter(manure_quality__icontains=manure_quality)
 
 
         return Response({"count": queryset.count()})

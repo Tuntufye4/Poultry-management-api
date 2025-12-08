@@ -52,7 +52,8 @@ INSTALLED_APPS = [
     'eggsales',  
     'sales_management',
     'farm_management',    
-    'logistics_management', 
+    'logistics_management',
+    'current_stock',  
     'meatsales',           
     'users',               
 ]
@@ -62,7 +63,7 @@ CORS_ALLOWED_ORIGINS = [
 ]         
 
 CORS_ALLOW_ALL_ORIGINS = True  # dev only
-
+    
 CORS_ALLOW_CREDENTIALS = True          
     
 REST_FRAMEWORK = {

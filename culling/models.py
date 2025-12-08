@@ -10,7 +10,7 @@ class Culling(models.Model):
     )   
     flock = models.CharField(max_length=200)   
     date = models.DateField(blank=True, null=True)
-    quantity_sold = models.CharField(max_length=200)    
+    quantity_sold = models.IntegerField()    
     weight_per_bird_kg = models.IntegerField()
     price_per_bird = models.FloatField()           
     total_amount = models.FloatField()

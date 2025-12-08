@@ -19,13 +19,20 @@ class InventorymovementListCreateView(generics.ListCreateAPIView):
    
         # Optional filters via query parameters
         inventory_item = self.request.query_params.get("inventory_item")
-        movement_type = self.request.query_params.get("movement_type")   
+        movement_type = self.request.query_params.get("movement_type")  
+        movement_status = self.request.query_params.get("movement_status") 
      
         if inventory_item:
             queryset = queryset.filter(inventory_item__icontains=inventory_item)
 
         if movement_type:   
             queryset = queryset.filter(movement_type__icontains=movement_type)  
+
+        if movement_status:    
+            queryset = queryset.filter(movement_status__icontains=movement_status)
+
+        if reason:
+            queryset = queryset.filter(reason__icontains=reason)
 
         return queryset
 
@@ -41,9 +48,11 @@ class InventorymovementListCreateView(generics.ListCreateAPIView):
 
 
 class InventorymovementCountView(generics.GenericAPIView):
-    """
+    """     
     GET /api/inventory_movement/count/        
     GET /api/inventory_movement/count/?inventory_item=
+    GET /api/inventory_movement/count/?movement_type=
+    GET /api/inventory_movement/count/?movement_status=   
     """
     queryset = Inventory_movement.objects.all()
 
@@ -52,12 +61,19 @@ class InventorymovementCountView(generics.GenericAPIView):
 
         inventory_item = request.query_params.get("inventory_item")   
         movement_type = request.query_params.get("movement_type")
+        movement_status = request.query_params.get("movement_status")
 
         if inventory_item:   
             queryset = queryset.filter(inventory_item__icontains=inventory_item)
 
         if movement_type:
             queryset = queryset.filter(movement_type__icontains=movement_type)
+     
+        if movement_status:
+            queryset = queryset.filter(movement_status__icontains=movement_status)
+
+        if reason:       
+            queryset = queryset.filter(reason__icontains=reason)
 
 
         return Response({"count": queryset.count()})

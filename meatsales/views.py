@@ -18,10 +18,22 @@ class MeatsalesListCreateView(generics.ListCreateAPIView):
         queryset = Meatsales.objects.all()
    
         # Optional filters via query parameters  
-        payment_method = self.request.query_params.get("payment_method")  
+        flock = self.request.query_params.get("flock")
+        payment_method = self.request.query_params.get("payment_method") 
+        chicken_type = self.request.query_params.get("chicken_type") 
+        processing_type = self.request.query_params.get("processing_type")
+
+        if flock:
+            queryset = queryset.filter(flock__icontains=flock)
 
         if payment_method:       
             queryset = queryset.filter(payment_method__icontains=payment_method)  
+
+        if chicken_type:
+            queryset = queryset.filter(chicken_type__icontains=chicken_type)
+
+        if processing_type:
+            queryset = queryset.filter(processing_type__icontains=processing_type)
 
         return queryset
 
@@ -38,19 +50,35 @@ class MeatsalesListCreateView(generics.ListCreateAPIView):
 
 class MeatsalesCountView(generics.GenericAPIView):
     """   
-    GET /api/meatsales/count/        
+    GET /api/meatsales/count/  
+    GET /api/meatsales/count/?flock=      
     GET /api/meatsales/count/?payment_method=
+    GET /api/meatsales/count/?chicken_type=
+    GET /api/meatsales/count/?processing_type=   
  
     """   
     queryset = Meatsales.objects.all()
 
     def get(self, request, *args, **kwargs):
         queryset = Meatsales.objects.all()
-
-        payment_method = request.query_params.get("payment_method")  
+        
+        flock = request.query_params.get("flock")
+        payment_method = request.query_params.get("payment_method") 
+        chicken_type = request.query_params.get("chicken_type")
+        processing_type = request.query_params.get("processing_type")
+        
+        if flock:
+            queryset = queryset.filter(flock__icontains=flock)
 
         if payment_method:    
             queryset = queryset.filter(payment_method__icontains=payment_method)
 
+        if chicken_type:
+            queryset = queryset.filter(chicken_type__icontains=chicken_type)
+
+        if processing_type:
+            queryset = queryset.filter(processing_type__icontains=processing_type)
+
 
         return Response({"count": queryset.count()})
+    

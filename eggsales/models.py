@@ -15,4 +15,4 @@ class  Eggsales(models.Model):
     total_amount = models.FloatField() 
     buyer_name = models.CharField(max_length=100)
     payment_method = models.CharField(max_length=100)
-                                                        
+                                                           

@@ -19,14 +19,18 @@ class NutritionListCreateView(generics.ListCreateAPIView):
 
         # Optional filters via query parameters
         feed_type = self.request.query_params.get("feed_type")
-        feed_brand = self.request.query_params.get("feed_brand")   
+        feed_brand = self.request.query_params.get("feed_brand") 
+        feed_form = self.request.query_params.get("feed_form")  
         flock = self.request.query_params.get("flock") 
 
         if feed_type:
             queryset = queryset.filter(feed_type__icontains=feed_type)
 
         if feed_brand:
-            queryset = queryset.filter(feed_brand__icontains=feed_brand)   
+            queryset = queryset.filter(feed_brand__icontains=feed_brand) 
+
+        if feed_form:
+            queryset = queryset.filter(feed_form__icontains=feed_form)   
 
         if flock:
             queryset = queryset.filter(flock__icontains=flock)   
@@ -59,14 +63,18 @@ class NutritionCountView(generics.GenericAPIView):
         feed_type = request.query_params.get("feed_type")
         feed_brand = request.query_params.get("feed_brand")
         flock = request.query_params.get("flock")
+        feed_form = request.query_params.get("feed_form")
 
         if feed_type:
             queryset = queryset.filter(feed_type__icontains=feed_type)
 
         if feed_brand:
             queryset = queryset.filter(feed_brand__icontains=feed_brand)
-
+   
         if flock:   
             queryset = queryset.filter(flock__icontains=flock)
+
+        if feed_form:   
+            queryset = queryset.filter(feed_form__icontains=feed_form)
 
         return Response({"count": queryset.count()})

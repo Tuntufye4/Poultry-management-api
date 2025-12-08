@@ -1,7 +1,7 @@
 from django.db import models
 from users.models import User
 
-class  Inventory_movement(models.Model): 
+class  Inventory_movement(models.Model):    
     created_by = models.ForeignKey(
         User,    
         on_delete=models.SET_NULL,

@@ -19,7 +19,8 @@ urlpatterns = [
     path('api/farm_management/', include('farm_management.urls')),
     path('api/logistics_management/', include('logistics_management.urls')),
     path('api/sales_management/', include('sales_management.urls')),
-    path('api/meatsales/', include('meatsales.urls')),   
-    path('api/auth/', include('users.urls')),
+    path('api/meatsales/', include('meatsales.urls')),  
+    path('api/current_stock/', include('current_stock.urls')),   
+    path('api/auth/', include('users.urls')),       
 ]
                                                        
