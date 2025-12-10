@@ -38,3 +38,16 @@ A poultry management api which contains farm, logistics and sales management ser
 |Manure quality| Character | manure quality|
 
 
+### Expense Type
+                     
+| Field | Data Type | Description |
+|-------|-----------|-------------|
+|Expense type | Character   | Type of expense |
+|Flock| Character| flock|
+|Amount | Float | amount |
+|Date | Date | Date |
+|Description | Character | Description|
+|Paid by| Character | manure type|
+|Payment method| Character | Payment method|
+
+### Egg Sales Type 
