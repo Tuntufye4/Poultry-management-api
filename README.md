@@ -3,7 +3,7 @@
   - [Services](#services)
     - [Inventory](#inventory)
     - [Manure sales](#manure-sales)
-   
+    - [Expense type](#expense-type)
 
 ---
 A poultry management api which contains farm, logistics and sales management services.
@@ -36,3 +36,6 @@ A poultry management api which contains farm, logistics and sales management ser
 |Payment Method | Character| payment method|
 |Manure type| Character | manure type|
 |Manure quality| Character | manure quality|
+
+
+
