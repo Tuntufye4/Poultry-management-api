@@ -4,7 +4,7 @@ from django.db.models import Count
 
 from .models import Inventory_movement
 from .serializers import InventorymovementSerializer
-
+    
 
 class InventorymovementListCreateView(generics.ListCreateAPIView):
     """
@@ -19,8 +19,9 @@ class InventorymovementListCreateView(generics.ListCreateAPIView):
    
         # Optional filters via query parameters
         inventory_item = self.request.query_params.get("inventory_item")
-        movement_type = self.request.query_params.get("movement_type")  
+        movement_type = self.request.query_params.get("movement_type")      
         movement_status = self.request.query_params.get("movement_status") 
+        reason = self.request.query_params.get("reason")
      
         if inventory_item:
             queryset = queryset.filter(inventory_item__icontains=inventory_item)
@@ -62,6 +63,7 @@ class InventorymovementCountView(generics.GenericAPIView):
         inventory_item = request.query_params.get("inventory_item")   
         movement_type = request.query_params.get("movement_type")
         movement_status = request.query_params.get("movement_status")
+        reason = request.query_params.get("reason")
 
         if inventory_item:   
             queryset = queryset.filter(inventory_item__icontains=inventory_item)

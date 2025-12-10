@@ -14,6 +14,9 @@ class Expenses(models.Model):
     date = models.DateField(blank=True, null=True)
     description = models.CharField(max_length=200)    
     paid_by = models.CharField(max_length=100)
-    payment_method = models.CharField(max_length=100)  
+    payment_method = models.CharField(max_length=100) 
+       
+
+
         
                                                      

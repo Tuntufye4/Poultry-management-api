@@ -14,7 +14,8 @@ class  Currentstock(models.Model):
     manure_bags = models.IntegerField()
     chicken_packaging_type = models.CharField(max_length=100)  
     manure_packaging_type = models.CharField(max_length=100) 
-    chicken_feed = models.IntegerField(blank=True, null=True)   
+    chicken_feed = models.IntegerField(blank=True, null=True)  
+    vaccines = models.IntegerField(blank=True, null=True) 
 
 
                                                               

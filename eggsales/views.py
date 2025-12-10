@@ -6,7 +6,7 @@ from .models import Eggsales
 from .serializers import EggsalesSerializer
 
 
-class EggsalesListCreateView(generics.ListCreateAPIView):
+class EggsalesListCreateView(generics.ListCreateAPIView):    
     """    
     GET  /api/eggsales/      -> list all eggsales (with optional filters)   
     POST /api/eggsales/      -> create a new eggsales
@@ -20,12 +20,20 @@ class EggsalesListCreateView(generics.ListCreateAPIView):
         # Optional filters via query parameters
         flock = self.request.query_params.get("flock")   
         payment_method = self.request.query_params.get("payment_method")  
+        egg_type = self.request.query_params.get("egg_type")
+        payment_status = self.request.query_params.get("payment_status")
 
         if flock:
             queryset = queryset.filter(flock__icontains=flock)   
 
         if payment_method:       
             queryset = queryset.filter(payment_method__icontains=payment_method)  
+
+        if egg_type:
+            queryset = queryset.filter(egg_type__icontains=egg_type)
+
+        if payment_status:          
+            queryset = queryset.filter(payment_status__icontains=payment_status)
 
         return queryset
 
@@ -53,12 +61,20 @@ class EggsalesCountView(generics.GenericAPIView):
 
         flock = request.query_params.get("flock")            
         payment_method = request.query_params.get("payment_method")
+        egg_type = request.query_params.get("egg_type")
+        payment_status = request.query_params.get("payment_status")
          
         if flock:
             queryset = queryset.filter(flock__icontains=flock)  
 
         if payment_method:    
             queryset = queryset.filter(payment_method__icontains=payment_method)
+
+        if egg_type:
+            queryset = queryset.filter(egg_type__icontains=egg_type)
+
+        if payment_status:
+            queryset = queryset.filter(payment_status__icontains=payment_status)
 
 
         return Response({"count": queryset.count()})
