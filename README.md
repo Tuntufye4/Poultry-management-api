@@ -38,4 +38,3 @@ A poultry management api which contains farm, logistics and sales management ser
 |Manure quality| Character | manure quality|
 
 
-
