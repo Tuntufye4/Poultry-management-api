@@ -5,6 +5,7 @@
     - [Manure sales](#manure-sales)
     - [Expense type](#expense-type)
     - [Egg Sales type](#egg-sales-type)
+    - [Meat Sales](#meat-sales)
 
 ---
 A poultry management api which contains farm, logistics and sales management services.
@@ -66,14 +67,16 @@ A poultry management api which contains farm, logistics and sales management ser
 |Payment status| Character | Status of payment i.e paid or unpaid |
 
 
-### Expense Type 
+### Meat Sales
 
 | Field | Data Type | Description |
 |-------|-----------|-------------|
-|Expense type | Character   | Type of expense i.e feed or treatment or  |
-|Flock| Character| type of flock i.e batch 1 or batch 2 |
-|Amount| Float | Amount |
-|Date| Date | Date |
-|Paid by| Character | Who made the payment|
-|Description| Character | Description|
+|Flock | Character   | Type of flock i.e batch 1 or batch 2 |
+|Date| Date | Date|
+|Kgs Sold| Integer | Kilograms sold|
+|Price per kg| Float | Price per kilogram |
+|Total amount| Float | Total amount|
+|Buyer name| Character | Name of buyer|
 |Payment method| Character | Method of payment i.e cash or Mobile money|
+|Chicken type| Character | Type of chicken i.e Broilers or Layers|
+|Processing type| Character | Type of processing|
