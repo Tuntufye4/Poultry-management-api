@@ -4,6 +4,7 @@
     - [Inventory](#inventory)
     - [Manure sales](#manure-sales)
     - [Expense type](#expense-type)
+    - [Egg Sales type](#egg-sales-type)
 
 ---
 A poultry management api which contains farm, logistics and sales management services.
@@ -11,7 +12,7 @@ A poultry management api which contains farm, logistics and sales management ser
 ## Services
     
 ### Inventory  
-
+    
 | Field | Data Type | Description |
 |-------|-----------|-------------|
 |category | Character   | inventory category |
@@ -47,7 +48,32 @@ A poultry management api which contains farm, logistics and sales management ser
 |Amount | Float | amount |
 |Date | Date | Date |
 |Description | Character | Description|
-|Paid by| Character | manure type|
+|Paid by| Character | paid by|
 |Payment method| Character | Payment method|
 
 ### Egg Sales Type 
+
+| Field | Data Type | Description |
+|-------|-----------|-------------|
+|Flock | Character   | flock |
+|Date| Date| Date eggs were sold|
+|Trays sold | Integer | Number of trays sold |
+|Total amount| Float | Total amount |
+|Buyer name| Character | Name of the buyer|
+|Payment method| Character | Method of payment i.e cash or Mobile money|
+|Sale type| Character| Type of sale i.e retail or wholesale|
+|Egg type| Character| Type of egg |
+|Payment status| Character | Status of payment i.e paid or unpaid |
+
+
+### Expense Type 
+
+| Field | Data Type | Description |
+|-------|-----------|-------------|
+|Expense type | Character   | Type of expense i.e feed or treatment or  |
+|Flock| Character| type of flock i.e batch 1 or batch 2 |
+|Amount| Float | Amount |
+|Date| Date | Date |
+|Paid by| Character | Who made the payment|
+|Description| Character | Description|
+|Payment method| Character | Method of payment i.e cash or Mobile money|
